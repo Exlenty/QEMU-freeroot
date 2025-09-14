@@ -64,13 +64,11 @@ runcmd:
   - mkdir -p /var/run/sshd
   - /usr/sbin/sshd -D &
   # Swap file creation and activation
-  - on_swap () {
-    fallocate -l $SWAP_SIZE /swapfile
-    chmod 600 /swapfile
-    mkswap /swapfile
-    swapon /swapfile
-    echo '/swapfile none swap sw 0 0' | tee -a /etc/fstab
-  }
+  - fallocate -l $SWAP_SIZE /swapfile
+  - chmod 600 /swapfile
+  - mkswap /swapfile
+  - swapon /swapfile
+  - echo '/swapfile none swap sw 0 0' | tee -a /etc/fstab
   - if [ "$SWAP_SIZE" -eq 0 ]; then
       on_swap
     fi
