@@ -123,6 +123,7 @@ else
 fi
 
 clear
+echo "CREDIT: quanvm0501 (BlackCatOfficial), BiraloGaming"
 echo "[INFO] Starting VM..."
 echo "username: $USERNAME"
 echo "password: $PASSWORD"
