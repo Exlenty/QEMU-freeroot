@@ -114,6 +114,7 @@ trap cleanup SIGINT SIGTERM
 # START VM
 # =============================
 # Check if KVM is available
+clear
 if [ -e /dev/kvm ]; then
     ACCELERATION_FLAG="-enable-kvm -cpu host"
     echo "[INFO] KVM is available. Using hardware acceleration."
@@ -121,8 +122,6 @@ else
     ACCELERATION_FLAG="-accel tcg"
     echo "[INFO] KVM is not available. Falling back to TCG software emulation."
 fi
-
-clear
 echo "CREDIT: quanvm0501 (BlackCatOfficial), BiraloGaming"
 echo "[INFO] Starting VM..."
 echo "username: $USERNAME"
